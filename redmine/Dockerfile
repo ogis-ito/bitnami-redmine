@@ -29,3 +29,7 @@ RUN set -eux; \
 # install gems
     gosu bitnami:root bundle config unset deployment; \
     gosu bitnami:root bundle install;
+
+RUN set -eux; \
+    \
+    sed -i 's/:filter_html => true/:filter_html => false/' lib/redmine/wiki_formatting/markdown/formatter.rb;
