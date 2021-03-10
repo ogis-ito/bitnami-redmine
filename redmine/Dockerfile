@@ -2,6 +2,8 @@ FROM docker.io/bitnami/redmine:4-debian-10
 
 WORKDIR /opt/bitnami/redmine
 
+#COPY --chown=bitnami:root vendor/cache/* vendor/cache/
+
 RUN set -eux; \
     \
     apt-get update && apt-get install -y --no-install-recommends \
