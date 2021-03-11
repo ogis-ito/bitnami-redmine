@@ -34,4 +34,4 @@ RUN set -eux; \
 
 RUN set -eux; \
     \
-    sed -i 's/:filter_html => true/:filter_html => false/' lib/redmine/wiki_formatting/markdown/formatter.rb;
+    sed -i -r 's/(:filter_html => true)/#\1/' lib/redmine/wiki_formatting/markdown/formatter.rb;
