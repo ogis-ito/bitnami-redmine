@@ -33,6 +33,9 @@ RUN set -eux; \
     gosu bitnami:root bundle config unset deployment; \
     gosu bitnami:root bundle install --local --no-cache;
 
+ENV SESSION_KEY_SUFFIX=""
+
 RUN set -eux; \
     \
-    sed -i -r 's/(:filter_html => true)/#\1/' lib/redmine/wiki_formatting/markdown/formatter.rb;
+    sed -i -r "s/(:filter_html => true)/#\1/" lib/redmine/wiki_formatting/markdown/formatter.rb; \
+    sed -i -r "s/(:key => '_redmine_session')/\1 + ENV['SESSION_KEY_SUFFIX']/" config/application.rb;
