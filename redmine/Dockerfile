@@ -17,6 +17,7 @@ RUN set -eux; \
 # install plugins
     gosu bitnami:root git config --global http.sslVerify false; \
     gosu bitnami:root git clone --depth 1 https://github.com/akiko-pusu/redmine_banner.git plugins/redmine_banner; \
+    gosu bitnami:root git clone --depth 1 https://github.com/redmica/redmine_issues_panel.git plugins/redmine_issues_panel; \
     gosu bitnami:root git clone --depth 1 https://github.com/AlphaNodes/redmine_messenger.git plugins/redmine_messenger; \
     #gosu bitnami:root git clone --depth 1 https://github.com/farend/scm-creator.git plugins/redmine_scm; \
     gosu bitnami:root git clone --depth 1 https://github.com/haru/redmine_wiki_extensions.git plugins/redmine_wiki_extensions; \
